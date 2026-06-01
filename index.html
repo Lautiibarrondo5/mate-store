@@ -121,7 +121,7 @@
                     <h3>Mate Imperial</h3>
                     <p>$18.000</p>
 
-                    <button class="btn-carrito">
+                    <button class="btn-carrito" onclick="agregarAlCarrito(`Mate imperial`, 18000)">
                         Agregar al carrito
                     </button>
                 </div>
@@ -131,7 +131,7 @@
                     <h3>Termo Stanley</h3>
                     <p>$65.000</p>
 
-                    <button class="btn-carrito">
+                    <button class="btn-carrito" onclick="agregarAlCarrito(`Termo Stanley`, 65000)">
                         Agregar al carrito
                     </button>
                 </div>
@@ -141,7 +141,7 @@
                     <h3>Yerba Baldo</h3>
                     <p>$8.500</p>
 
-                    <button class="btn-carrito">
+                    <button class="btn-carrito" onclick="agregarAlCarrito(`Yerba Baldo`, 8500)">
                         Agregar al carrito
                     </button>
                 </div>
@@ -151,7 +151,7 @@
                     <h3>Bombillas de Acero</h3>
                     <p>$7.600 c/u</p>
 
-                    <button class="btn-carrito">
+                    <button class="btn-carrito" onclick="agregarAlCarrito(`Bombillas`, 7600)">
                         Agregar al carrito
                     </button>
                 </div>
@@ -161,7 +161,7 @@
                     <h3>Matera Cuero</h3>
                     <p>$22.000</p>
 
-                    <button class="btn-carrito">
+                    <button class="btn-carrito" onclick="agregarAlCarrito(`Matera Cuero`, 22000)">
                         Agregar al carrito
                     </button>
                 </div>
@@ -171,10 +171,92 @@
                     <h3>Kit Matero</h3>
                     <p>$60.000</p>
 
-                    <button class="btn-carrito">
+                    <button class="btn-carrito" onclick="agregarAlCarrito(`Kit Matero`, 60000)">
                         Agregar al carrito
                     </button>
                 </div>
+
+                <div class="producto">
+                    <img src="img/mate-calabaza.jpg" alt="Mate de calabaza, base cuero">
+                    <h3>Mate Calabaza</h3>
+                    <p>$11.000</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito(event,`Mate de calabaza`,11000)">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="producto">
+                    <img src="img/bombilla-picoloro.jpg" alt="Bombilla pico de loro">
+                    <h3>Bombilla pico de loro</h3>
+                    <p>$5.000</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Bombilla pico de loro`, 5000)">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="producto">
+                    <img src="img/termo-clasico.jpg" alt="Termo clasico">
+                    <h3>Termo Clásico</h3>
+                    <p>$25.000</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Termo Clásico`, 25000)">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="producto">
+                    <img src="img/matera-cuero.jpg" alt="Matera de cuero">
+                    <h3>Matera de cuero</h3>
+                    <p>$18.000</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito"(event, `Matera de cuero`, 18000)>
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="producto">
+                    <img src="img/combo-mate-termo.jpg" alt="Combo mate y termo">
+                    <h3>Combo de Mate + Termo stanley</h3>
+                    <p>$58.000</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Combo Mate + Termo`, 58000)">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="producto">
+                    <img src="img/mate-topedo1.jpg" alt="Mate torpedo">
+                    <h3>Mate torpedo</h3>
+                    <p>$34.000</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Mate torpedo`, 34000)">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="producto">
+                    <img src="img/mate-torpedo-per.jpg" alt="Torpedo personalizado">
+                    <h3>Mate Torpedo personalizado Barca</h3>
+                    <p>$56.000</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Torpedo personalizado`, 56000)">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="producto">
+                    <img src="img/matera-pelo.jpg" alt="Matera de pelo">
+                    <h3>Matera pelo</h3>
+                    <p>$69.999</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Matera pelo`, 69999)">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="producto">
+                    <img src="img/yerba-canarias.jpg" alt="Yerba Canarias">
+                    <h3>Yerba Canarias</h3>
+                    <p>$8.400</p>
+                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Yerba Canarias`, 8400)">
+                        Agregar al carrito
+                    </button>
+                </div>
+                
             </div>
 
         </section>
@@ -293,6 +375,10 @@
         
         <script src="js/productos.js"></script>
     </body>
+
+    <div id="toast-carrito" class="toast">
+        Agregado al Carrito +1
+    </div>
 
 </html>
     </body>

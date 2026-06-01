@@ -52,6 +52,8 @@ botones.forEach(boton => {
             precio
         });
 
+        mostrarToast(nombre);
+
         actualizarCarrito();
 
         alert("Producto agregado al carrito");
