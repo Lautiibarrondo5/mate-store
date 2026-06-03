@@ -15,7 +15,7 @@
                 <ul class="nav-links">
                     <li><a href="inicio">Inicio</a></li>
                     <li><a href="#">Productos</a></li>
-                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="#">Contacto</a></li>
                     <li><a href="#categorias">Categorías</a></li>
                     <li><a href="#catalogo">Catálogo</a></li>
@@ -29,8 +29,7 @@
                     </li>
                 </ul>
 
-                <ul id="lista-carrito"></ul>
-                <span id="total">0</span>
+                
 
             </nav>
         </header>
@@ -46,6 +45,10 @@
             </div>
         </section>
 
+        <p class="contenedor-productos">
+            📦 Más de 30 productos disponibles
+        </p>
+
         <section class="destacados">
 
             <h2>Productos destacados</h2>
@@ -56,18 +59,42 @@
                     <img src="img/mate1.jpg" alt="mate imperial de cuero premium">
                     <h2>Mate Imperial</h2>
                     <p>$29.999</p>
+                    <p class="valoracion">⭐⭐⭐⭐</p>
                 </div>
 
                 <div class="card">
                     <img src="img/termo1.jpg" alt="termo de acero inoxidable">
                     <h3>Termo de acero inoxidable</h3>
                     <p>$45.999</p>
+                    <p class="valoracion">⭐⭐⭐</p>
                 </div>
 
                 <div class="card">
                     <img src="img/yerba1.jpg" alt="yerba baldo 1kg">
                     <h3>Yerba Baldo</h3>
                     <p>$7.500</p>
+                    <p class="valoracion">⭐⭐⭐</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/mate-galleta.jpg" alt="Mate galleta">
+                    <h3>Mate Galleta</h3>
+                    <p>$12.000</p>
+                    <p class="valoracion">⭐⭐⭐⭐</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/porta-mate.jpg" alt="Porta Mate">
+                    <h3>Porta Mate, perfecto para tu auto</h3>
+                    <p>$6.000</p>
+                    <p class="valoracion">⭐⭐</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/termos-personalizados.jpg" alt="personalizá tu termo">
+                    <h3>Personalizá tu termo</h3>
+                    <p>$15.000</p>
+                    <p class="valoracion">⭐⭐⭐⭐</p>
                 </div>
 
             </div>
@@ -104,6 +131,18 @@
 
         </section>
 
+        <section class="filtros">
+
+            <button data-categoria="todos">Todos</button>
+            <button data-categoria="mates">Mates</button>
+            <button data-categoria="termos">Termos</button>
+            <button data-categoria="yerbas">Yerbas</button>
+            <button data-categoria="bombillas">Bombillas</button>
+            <button data-categoria="materas">Materas</button>
+            <button data-categoria="kits">Kits</button>
+
+        </section>
+
         <section id="catalogo" class="catalogo">
 
             <h1>Nuestro catálogo</h1>
@@ -116,149 +155,194 @@
 
             <div class="productos-grid">
 
-                <div class="producto">
+                <div class="producto" data-categoria="mates">
+                    <button class="favorito">❤️</button>
                     <img src="img/mate1.jpg" alt="Mate imperial">
                     <h3>Mate Imperial</h3>
                     <p>$18.000</p>
 
-                    <button class="btn-carrito" onclick="agregarAlCarrito(`Mate imperial`, 18000)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="termos">
+                    <button class="favorito">❤️</button>
                     <img src="img/termo1.jpg" alt="Termo Stanley">
                     <h3>Termo Stanley</h3>
                     <p>$65.000</p>
 
-                    <button class="btn-carrito" onclick="agregarAlCarrito(`Termo Stanley`, 65000)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="yerbas">
+                    <button class="favorito">❤️</button>
                     <img src="img/yerba1.jpg" alt="Yerba Baldo">
                     <h3>Yerba Baldo</h3>
                     <p>$8.500</p>
 
-                    <button class="btn-carrito" onclick="agregarAlCarrito(`Yerba Baldo`, 8500)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="bombillas">
+                    <button class="favorito">❤️</button>
                     <img src="img/categoria-bombillas.jpg" alt="Bombillas de Acero">
                     <h3>Bombillas de Acero</h3>
                     <p>$7.600 c/u</p>
 
-                    <button class="btn-carrito" onclick="agregarAlCarrito(`Bombillas`, 7600)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="materas">
+                    <button class="favorito">❤️</button>
                     <img src="img/matera1.jpg" alt="Matera de Cuero">
                     <h3>Matera Cuero</h3>
                     <p>$22.000</p>
 
-                    <button class="btn-carrito" onclick="agregarAlCarrito(`Matera Cuero`, 22000)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="kits">
+                    <button class="favorito">❤️</button>
                     <img src="img/kit1.jpg" alt="Kit Matero">
                     <h3>Kit Matero</h3>
                     <p>$60.000</p>
 
-                    <button class="btn-carrito" onclick="agregarAlCarrito(`Kit Matero`, 60000)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="mates">
+                    <button class="favorito">❤️</button>
                     <img src="img/mate-calabaza.jpg" alt="Mate de calabaza, base cuero">
                     <h3>Mate Calabaza</h3>
                     <p>$11.000</p>
-                    <button class="btn-carrito" onclick="agregarAlCarrito(event,`Mate de calabaza`,11000)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="bombillas">
+                    <button class="favorito">❤️</button>
                     <img src="img/bombilla-picoloro.jpg" alt="Bombilla pico de loro">
                     <h3>Bombilla pico de loro</h3>
                     <p>$5.000</p>
-                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Bombilla pico de loro`, 5000)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="termos">
+                    <button class="favorito">❤️</button>
                     <img src="img/termo-clasico.jpg" alt="Termo clasico">
                     <h3>Termo Clásico</h3>
                     <p>$25.000</p>
-                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Termo Clásico`, 25000)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="materas">
+                    <button class="favorito">❤️</button>
                     <img src="img/matera-cuero.jpg" alt="Matera de cuero">
                     <h3>Matera de cuero</h3>
                     <p>$18.000</p>
-                    <button class="btn-carrito" onclick="agregarAlCarrito"(event, `Matera de cuero`, 18000)>
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="kits">
+                    <button class="favorito">❤️</button>
                     <img src="img/combo-mate-termo.jpg" alt="Combo mate y termo">
                     <h3>Combo de Mate + Termo stanley</h3>
                     <p>$58.000</p>
-                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Combo Mate + Termo`, 58000)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="mates">
+                    <button class="favorito">❤️</button>
                     <img src="img/mate-topedo1.jpg" alt="Mate torpedo">
                     <h3>Mate torpedo</h3>
                     <p>$34.000</p>
-                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Mate torpedo`, 34000)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="mates">
+                    <button class="favorito">❤️</button>
                     <img src="img/mate-torpedo-per.jpg" alt="Torpedo personalizado">
                     <h3>Mate Torpedo personalizado Barca</h3>
                     <p>$56.000</p>
-                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Torpedo personalizado`, 56000)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="materas">
+                    <button class="favorito">❤️</button>
                     <img src="img/matera-pelo.jpg" alt="Matera de pelo">
                     <h3>Matera pelo</h3>
                     <p>$69.999</p>
-                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Matera pelo`, 69999)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
 
-                <div class="producto">
+                <div class="producto" data-categoria="yerbas">
+                    <button class="favorito">❤️</button>
                     <img src="img/yerba-canarias.jpg" alt="Yerba Canarias">
                     <h3>Yerba Canarias</h3>
                     <p>$8.400</p>
-                    <button class="btn-carrito" onclick="agregarAlCarrito(event, `Yerba Canarias`, 8400)">
+                    <button class="btn-carrito">
                         Agregar al carrito
                     </button>
                 </div>
                 
             </div>
 
+        </section>
+
+        <section id="mas-vendidos">
+            <h2>🔥 Más Vendidos</h2>
+
+            <div class="contenedor-productos">
+
+                <div class="producto">
+                    <img src="img/yerba-canarias.jpg" alt="Yerba Canarias">
+                    <h3>Yerba Canarias</h3>
+                    <p>$8.400</p>
+                </div>
+
+                <div class="producto">
+                    <img src="img/termo-clasico.jpg" alt="Termo clasico">
+                    <h3>Termo Clásico</h3>
+                    <p>$25.000</p>
+                </div>
+
+                <div class="producto">
+                    <img src="img/mate1.jpg" alt="Mate imperial">
+                    <h3>Mate Imperial</h3>
+                    <p>$18.000</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="promo">
+            <h2>🎁 Envío gratis en compraas superiores a $50.000</h2>
         </section>
 
         <section id="carrito" class="carrito-container">
@@ -274,6 +358,10 @@
             <button id="vaciar-carrito">
                 Vaciar carrito
             </button>
+
+            <a href="checkout.html" class="btn-checkout">
+                Finalizar Compra
+            </a>
 
         </section>
 
@@ -333,6 +421,25 @@
 
         </section>
 
+        <section class="newsletter">
+            <h2>Recibí nuestras ofertas</h2>
+            <input type="email" placeholder="Tu correo">
+            <button>Suscribirme</button>
+        </section>
+
+        <section class="marcas">
+            <h2>🏆 Marcas que trabajamos</h2>
+
+            <div class="contenedor-marcas">
+                <div class="marca">Stanley</div>
+                <div class="marca">Baldo</div>
+                <div class="marca">Canarias</div>
+                <div class="marca">Lumilagro</div>
+                <div class="marca">Sara</div>
+            </div>
+
+        </section>
+
         <footer>
 
             <div class="footer-container">
@@ -373,14 +480,32 @@
             
         </footer>
         
+        <script src="js/script.js"></script>
         <script src="js/productos.js"></script>
-    </body>
 
     <div id="toast-carrito" class="toast">
         Agregado al Carrito +1
     </div>
 
-</html>
+    <a href="https://wa.me/549xxxxxxxxx" class="whatsapp" target="_blank">
+        📞
+    </a>
+
+    <section class="oferta-tiempo">
+        <h2>🔥 Oferta termina en:</h2>
+        <p id="contador">24:00:00</p>
+    </section>
+
+    <section class="faq">
+        <h2>Pregutas Frecuentes</h2>
+
+        <h3>¿Hacen envíos?</h3>
+        <p>Sí, a todo el país.</p>
+
+        <h3>¿Qué medios de pago aceptan?</h3>
+        <p>Tarjetas, transferencias y billeteras virtuales</p>
+    </section>
+
     </body>
 
 </html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - MateStore</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <section class="checkout">
+
+        <h1>🛒 Finalizar Compra</h1>
+
+        <div id="resumen-compra">
+            <h2>Resumen del pedido</h2>
+
+            <div id="productos-checkout"></div>
+
+            <h3 id="total-checkout">$0</h3>
+        </div>
+
+        <form class="form-checkout">
+
+            <input type="text" placeholder="Nombre Completo" required>
+
+            <input type="email" placeholder="Correo electrónico" required>
+
+            <input type="tel" placeholder="Teléfono" required>
+
+            <input type="text" placeholder="Dirección de envío">
+
+            <select required>
+                <option value="">Método de pago</option>
+                <option>Tarjeta de Crédito</option>
+                <option>Tarjeta de débito</option>
+                <option>Transferencia Bancaria</option>
+                <option>Mercado Pago</option>
+            </select>
+
+            <script>
+                document.querySelector(".form-checkout")
+                .addEventListener("submit", function(e){
+
+                    e.preventDefault();
+
+                    alert("¡Gracias por tu compra! 🧉");
+
+                    localStorage.removeItem("carrito");
+
+                    window.location.href = "index.html";
+                });
+            </script>
+
+        </form>
+
+    </section>
+
+    <script>
+        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+const contenedor = document.getElementById("productos-checkout");
+const totalElement = document.getElementById("total-checkout");
+
+let total = 0;
+const productosAgrupados = {};
+
+if (carrito.length === 0) {
+
+    contenedor.innerHTML = "<p>Tu carrito está vacío 🛒</p>";
+
+} else {
+
+    carrito.forEach(producto => {
+
+        total += producto.precio;
+
+        if (productosAgrupados[producto.nombre]) {
+            productosAgrupados[producto.nombre].cantidad++;
+        } else {
+            productosAgrupados[producto.nombre] = {
+                cantidad: 1,
+                precio: producto.precio
+            };
+        }
+    });
+
+    for (let nombre in productosAgrupados) {
+
+        contenedor.innerHTML += `
+            <div class="item-checkout">
+                <p>${nombre} x${productosAgrupados[nombre].cantidad}</p>
+                <span>$${(
+                    productosAgrupados[nombre].precio *
+                    productosAgrupados[nombre].cantidad
+                ).toLocaleString("es-AR")}</span>
+            </div>
+        `;
+    }
+
+    totalElement.textContent =
+        `Total: $${total.toLocaleString("es-AR")}`;
+}
+    </script>
+
+    <input
+    type="text"
+    id="cupon"
+    placeholder="Código de descuento">
+
+    <button id="aplicar-cupon">
+        Aplicar Cupón
+    </button>
+
+
+</body>
+</html>

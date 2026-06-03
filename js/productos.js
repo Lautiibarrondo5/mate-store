@@ -36,27 +36,24 @@ botones.forEach(boton => {
 
     boton.addEventListener("click", () => {
 
-        const producto = boton.parentElement;
+    const producto = boton.closest(".producto");
 
-        const nombre = producto.querySelector("h3").textContent;
+const nombre = producto.querySelector("h3").textContent;
 
-        const precio = parseInt(
-            producto.querySelector("p")
-                .textContent
-                .replace("$", "")
-                .replace(/\./g, "")
-        );
+const precioTexto = producto.querySelector("p").textContent;
+
+const precio = parseInt(
+    precioTexto.replace(/\D/g, "")
+);
+
 
         carrito.push({
             nombre,
             precio
         });
 
-        mostrarToast(nombre);
-
-        actualizarCarrito();
-
-        alert("Producto agregado al carrito");
+    mostrarToast(nombre);
+actualizarCarrito();
     });
 });
 
@@ -87,6 +84,8 @@ if (vaciarBtn) {
 
 // Actualizar carrito
 function actualizarCarrito() {
+
+    console.log("Carrito actual:", carrito);
 
     if (listaCarrito) {
         listaCarrito.innerHTML = "";
@@ -124,3 +123,4 @@ function actualizarCarrito() {
         JSON.stringify(carrito)
     );
 }
+actualizarCarrito();
