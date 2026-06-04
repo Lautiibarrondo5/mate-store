@@ -763,3 +763,173 @@ section {
     cursor: pointer;
 }
 
+.ver-mas-container{
+    text-align: center;
+    margin: 30px 0;
+}
+
+#btn-ver-mas{
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#btn-ver-mas:hover{
+    transform: scale(1.05);
+}
+
+.producto.oculto{
+    display: none;
+}
+
+.hero-nosotros{
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url(/img/banner-mate.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    padding: 100px 20px;
+}
+
+.hero-nosotros h1{
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero-nosotros p{
+    font-size: 1.2rem;
+}
+
+.historia{
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.historia h2{
+    margin-bottom: 20px;
+    color: #2e7d32;
+}
+
+.mision-vision{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+.card{
+    background: white;
+    width: 300px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    transition: .3s;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+}
+
+.card h3{
+    margin-bottom: 15px;
+    color: #2e7d32;
+}
+
+.estadisticas{
+    background: #2e7d32;
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    text-align: center;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.estadisticas h2{
+    font-size: 2.5rem;
+}
+
+.img-nosotros{
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 30px auto;
+    border-radius: 15px;
+}
+
+#configurador{
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+#configurador h2{
+    color: #2e7d32;
+    margin-bottom: 20px;
+}
+
+#configurador select{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+#precio-combo{
+    margin-top: 20px;
+    color: #2e7d32;
+    font-size: 1.5rem;
+}
+
+#agregar-combo{
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+#agregar-combo:hover{
+    transform: scale(1.05);
+}
+
+#ruleta-descuentos{
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#ruleta{
+    font-size: 120px;
+    transition: transform 4s ease-out;
+}
+
+#girar-ruleta{
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#resultado-ruleta{
+    margin-top: 20px;
+    color: #2e7d32;
+}
