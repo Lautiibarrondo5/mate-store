@@ -2,6 +2,8 @@
 
 const buscador = document.getElementById("buscador");
 
+if(buscador) {
+
 buscador.addEventListener("keyup", () => {
 
     const texto = buscador.value.toLocaleLowerCase();
@@ -21,6 +23,7 @@ buscador.addEventListener("keyup", () => {
             }
     });
 });
+}
 
 // ==== CARRITO ====
 
@@ -38,21 +41,24 @@ botones.forEach(boton => {
 
     const producto = boton.closest(".producto");
 
+    if (!producto) return;
+
 const nombre = producto.querySelector("h3").textContent;
 
 const precioTexto = producto.querySelector("p").textContent;
 
 const precio = parseInt(
     precioTexto.replace(/\D/g, "")
-);
+) || 0;
 
 
         carrito.push({
             nombre,
             precio
         });
-
+    if (typeof mostrarToast === "function") {
     mostrarToast(nombre);
+    }
 actualizarCarrito();
     });
 });

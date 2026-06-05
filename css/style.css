@@ -39,6 +39,20 @@ nav a{
     text-decoration: none;
 }
 
+@media (max-width: 768px){
+
+    nav{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul{
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
 .hero{
     min-height: 100vh;
     background: url("../img/hero-mate.jpg");
@@ -54,8 +68,16 @@ nav a{
     color: white;
 }
 
-.hero h1{
-    font-size: 4rem;
+@media (max-width:768px){
+
+    .hero h1{
+        font-size: 2.5rem;
+    }
+
+    .hero p{
+        font-size: 1rem;
+    }
+
 }
 
 .btn{
@@ -127,13 +149,14 @@ nav a{
 }
 
 .categoria:hover{
-    transform: translateY(-10px);
+    transform: scale(1.05);
 }
 
 .categoria img{
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: .3s;
 }
 
 .categoria h3{
@@ -225,7 +248,7 @@ footer{
 }
 
 .footer-box h3{
-    margin-bottom: 1.8;
+    margin-bottom: 1.8rem;
 }
 
 .footer-box p{
@@ -236,7 +259,7 @@ footer{
     list-style: none;
 }
 
-.footer ul li{
+footer ul li{
     margin: 10px 0;
 }
 
@@ -255,9 +278,12 @@ footer{
     border-top: 1px solid rgba(255,255,255,.2);
 }
 
-.catalogo{
-    padding: 80px;
-    text-align: center;
+@media (max-width:768px){
+
+    .catalogo{
+        padding: 30px 15px;
+    }
+
 }
 
 .catalogo h1{
@@ -430,7 +456,7 @@ section, header, nav {
 .producto:nth-child(5) { animation-delay: 0.25s;}
 
 button {
-    transition: transform 0.2 ease, background 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 button:hover {
@@ -618,7 +644,7 @@ section {
     line-height: 1.6;
 }
 
-@media (max-widt: 768px){
+@media (max-width: 768px){
 
     #contador{
         font-size: 1.5rem;
@@ -796,13 +822,16 @@ section {
     padding: 100px 20px;
 }
 
-.hero-nosotros h1{
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
+@media (max-width:768px){
 
-.hero-nosotros p{
-    font-size: 1.2rem;
+    .hero-nosotros h1{
+        font-size: 2rem;
+    }
+
+    .hero-nosotros p{
+        font-size: 1rem;
+    }
+
 }
 
 .historia{
@@ -856,6 +885,15 @@ section {
 
 .estadisticas h2{
     font-size: 2.5rem;
+}
+
+@media (max-width: 768px){
+
+    .estadisticas{
+        flex-direction: column;
+        gap: 25px;
+    }
+
 }
 
 .img-nosotros{
@@ -932,4 +970,21 @@ section {
 #resultado-ruleta{
     margin-top: 20px;
     color: #2e7d32;
+}
+
+.porque-elegirnos{
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.porque-elegirnos h2{
+    margin-bottom: 40px;
+    color: #2e7d32;
+}
+
+.logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
 }

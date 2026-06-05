@@ -23,6 +23,11 @@ function mostrarToast(nombre) {
     }, 1500);
 }
 
+
+const contador = document.getElementById("contador");
+
+if (contador) {
+
 let tiempo = 86400; // 2 horas
 
 setInterval(() => {
@@ -30,13 +35,16 @@ setInterval(() => {
     let minutos = Math.floor((tiempo % 3600) / 60);
     let segundos = tiempo % 60;
 
-    document.getElementById("contador").textContent =
+    contador.textContent =
         `${horas}:${minutos}:${segundos}`;
 
         if(tiempo > 0){
-            tiempo = 86400; // reinicia a 24 horas
+            tiempo--;
+        } else {
+            tiempo = 86400;
         }
 }, 1000);
+}
 
 document.querySelectorAll(".favorito").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -67,24 +75,32 @@ botonesFiltro.forEach(btn => {
     });
 });
 
-document
-.getElementById("aplicar-cupon")
-.addEventListener("click", () => {
 
-    const cupon =
-    document.getElementById("cupon").value;
+const btnCupon = document.getElementById("aplicar-cupon");
 
-    if(cupon === "MATE10"){
+if(btnCupon){
+    btnCupon.addEventListener("click", () => {
+        const cupon =
+            document.getElementById("cupon").value;
 
-        alert("Cupón aplicado: 10% OFF");
+        if(cupon === "MATE10"){
+            alert("Cupón aplicado: 10% OFF");
+        } else {
+            alert("Cupón inválido");
+        }
+    });
+}
 
-    } else {
-
-        alert("Cupón inválido");
-    }
-});
 
 let historial = JSON.parse(localStorage.getItem("historial")) || [];
+
+const carrito =
+    JSON.parse(localStorage.getItem("carrito")) || [];
+
+const totalCompra = carrito.reduce(
+    (total, producto) => total + producto.precio,
+    0
+);
 
 historial.push({
     fecha: new Date().toLocaleDateString(),
@@ -94,25 +110,34 @@ historial.push({
 
 localStorage.setItem("historial", JSON.stringify(historial));
 
-const productosCatalogo = document.querySelectorAll(".producto");
+const productosCatalogoIniciales = 8;
+
+const productosCatalogo =
+    document.querySelectorAll(".producto");
+
+productosCatalogo.forEach((producto, index) => {
+    if(index >= productosCatalogoIniciales){
+        producto.classList.add("oculto");
+    }
+});
 const btnVerMas = document.getElementById("btn-ver-mas");
 
-const productosIniciales = 8;
+
 let expandido = false;
 
 //Ocultar productos extras al cargar
-productos.forEach((producto, index) => {
-    if(index >= productosIniciales){
+productosCatalogo.forEach((producto, index) => {
+    if(index >= productosCatalogoIniciales){
         producto.classList.add("oculto")
     }
 });
 
+if(btnVerMas) {
 btnVerMas.addEventListener("click", () => {
-
     if(!expandido){
 
-        productos.forEach(producto => {
-            producto.classList.remove("oculto")
+        productosCatalogo.forEach(producto => {
+            producto.classList.remove("oculto");
         });
 
         btnVerMas.textContent = "Ver menos";
@@ -120,11 +145,11 @@ btnVerMas.addEventListener("click", () => {
 
     } else {
 
-        productos.forEach((producto, index) => {
-            if(index >= productosIniciales){
-                producto.classList.add("oculto");
-            }
-        });
+        productosCatalogo.forEach((producto, index) => {
+                if(index >= productosCatalogoIniciales){
+                    producto.classList.add("oculto");
+                }
+            });
 
         btnVerMas.textContent = "Ver más productos";
         expandido = false;
@@ -134,6 +159,9 @@ btnVerMas.addEventListener("click", () => {
         });
     }
 });
+}
+
+    
 
 const mate = document.getElementById("mate");
 const bombilla = document.getElementById("bombilla");
@@ -148,13 +176,16 @@ function actualizarCombo() {
 
     precioCombo.textContent =
         `$${total.toLocaleString("es-AR")}`;
+
 }
+if (mate && bombilla && termo && precioCombo) {
 
 mate.addEventListener("change", actualizarCombo);
 bombilla.addEventListener("change", actualizarCombo);
 termo.addEventListener("change", actualizarCombo);
 
 actualizarCombo();
+}
 
 const btnCombo = document.getElementById("agregar-combo");
 
@@ -182,7 +213,7 @@ if(btnCombo){
             JSON.stringify(carrito)
         );
 
-        alert("🧉 Combo agregado ak carrito")
+        alert("🧉 Combo agregado al carrito");
     });
 }
 
@@ -194,37 +225,33 @@ if(btnRuleta){
 
     const premios = [
         { texto: "🎉 5% OFF", codigo: "MATE5" },
-        {texto: "🎉 10% OFF", codigo: MATE10 },
+        {texto: "🎉 10% OFF", codigo: "MATE10" },
         {texto: "🎉 15% OFF", codigo: "MATE15"},
         {texto: "🚚 Envío Gratis", codigo: "ENVIOFREE"}
     ];
 
-    btnRuleta.addEventListener("click", () => {
+btnRuleta.addEventListener("click", () => {
 
-        const giro = 1440 + Math.random() * 720;
+    const giro = 1440 + Math.random() * 720;
 
-        ruleta.style.transform = `rotate(${giro})`;
+    ruleta.style.transform = `rotate(${giro}deg)`;
 
-        setTimeout(() => {
+    setTimeout(() => {
 
-            const premio =
-                premios[Math.floor(Math.random() * premios.length)];
+        const premio =
+            premios[Math.floor(Math.random() * premios.length)];
 
-                resultadoRuleta.innerHTML =
-                    `${premio.texto}<br>Código: <strong>${premio.codigo}</strong>`;
+        resultadoRuleta.innerHTML =
+            `${premio.texto}<br>Código: <strong>${premio.codigo}</strong>`;
 
-                localStorage.setItem(
-                    "cuponGanado",
-                    premio.codigo
-                );
-        }, 4000)
+        localStorage.setItem(
+            "cuponGanado",
+            premio.codigo
+        );
 
-        if(localStorage.getItem("ruletaUsada")){
-            btnRuleta.disabled = true;
-            resultadoRuleta.textContent =
-                "Ya utilizaste la ruleta hoy.";
-        }
+    }, 4000);
 
-        localStorage.setItem("ruletaUsada", "si");
-    });
+    localStorage.setItem("ruletaUsada", "si");
+
+});
 }

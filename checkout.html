@@ -13,7 +13,7 @@
         <h1>🛒 Finalizar Compra</h1>
 
         <div id="resumen-compra">
-            <h2>Resumen del pedido</h2>
+            <h2 id="titulo-resumen">Resumen del pedido</h2>
 
             <div id="productos-checkout"></div>
 
@@ -38,20 +38,18 @@
                 <option>Mercado Pago</option>
             </select>
 
-            <script>
-                document.querySelector(".form-checkout")
-                .addEventListener("submit", function(e){
+<input
+    type="text"
+    id="cupon"
+    placeholder="Código de descuento">
 
-                    e.preventDefault();
+<button type="button" id="aplicar-cupon">
+    Aplicar Cupón
+</button>
 
-                    alert("¡Gracias por tu compra! 🧉");
-
-                    localStorage.removeItem("carrito");
-
-                    window.location.href = "index.html";
-                });
-            </script>
-
+<button type="submit" class="btn-finalizar">
+    Finalizar Compra
+</button>
         </form>
 
     </section>
@@ -68,6 +66,12 @@ const productosAgrupados = {};
 if (carrito.length === 0) {
 
     contenedor.innerHTML = "<p>Tu carrito está vacío 🛒</p>";
+
+    document.querySelector("#titulo-resumen").style.display = "none"
+
+    totalElement.style.display = "none";
+
+    document.querySelector(".form-checkout").style.display = "none";
 
 } else {
 
@@ -103,15 +107,58 @@ if (carrito.length === 0) {
 }
     </script>
 
-    <input
-    type="text"
-    id="cupon"
-    placeholder="Código de descuento">
+<script>
+    
+    const formulario = document.querySelector(".form-checkout");
 
-    <button id="aplicar-cupon">
-        Aplicar Cupón
-    </button>
+    if(formulario){
 
+    formulario.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    if(carrito.length === 0){
+    alert("Tu carrito está vacío");
+    return;
+}
+
+    alert("¡Gracias por tu compra! 🧉");
+
+    localStorage.removeItem("carrito");
+
+    window.location.href = "index.html";
+
+});
+}
+    </script>
+
+<script>
+const btnCupon = document.getElementById("aplicar-cupon");
+
+if(btnCupon){
+
+    btnCupon.addEventListener("click", () => {
+
+        const cupon = document
+            .getElementById("cupon")
+            .value
+            .trim()
+            .toUpperCase();
+
+        if(cupon === "MATE10"){
+
+            alert("🎉 Cupón aplicado: 10% OFF");
+
+        } else {
+
+            alert("❌ Cupón inválido");
+
+        }
+
+    });
+
+}
+</script>
 
 </body>
 </html>
