@@ -255,3 +255,28 @@ btnRuleta.addEventListener("click", () => {
 
 });
 }
+
+const slides = document.querySelectorAll(".slide");
+
+let indice = 0;
+
+setInterval(() => {
+    slides[indice].classList.remove("active");
+
+    indice++;
+
+    if (indice >= slides.length) {
+        indice = 0;
+    }
+
+    slides[indice].classList.add("active");
+}, 4000);
+
+document
+.getElementById("abir-buscador")
+.addEventListener("click", () => {
+
+    document
+    .getElementById("buscador")
+    .classList.toggle("mostrar");
+});
