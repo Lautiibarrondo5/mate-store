@@ -27,6 +27,18 @@
             </p>
 
         </section>
+
+        <script>
+const formulario = document.querySelector("form");
+
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    alert("Inicio de sesión exitoso");
+
+    window.location.href = "index.html";
+});
+</script>
     </body>
 
 </html>

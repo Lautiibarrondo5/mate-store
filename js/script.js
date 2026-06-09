@@ -258,22 +258,27 @@ btnRuleta.addEventListener("click", () => {
 
 const slides = document.querySelectorAll(".slide");
 
-let indice = 0;
+if(slides.length > 0){
 
-setInterval(() => {
-    slides[indice].classList.remove("active");
+    let indice = 0;
 
-    indice++;
+    setInterval(() => {
 
-    if (indice >= slides.length) {
-        indice = 0;
-    }
+        slides[indice].classList.remove("active");
 
-    slides[indice].classList.add("active");
-}, 4000);
+        indice++;
+
+        if(indice >= slides.length){
+            indice = 0;
+        }
+
+        slides[indice].classList.add("active");
+
+    }, 4000);
+}
 
 document
-.getElementById("abir-buscador")
+.getElementById("abrir-buscador")
 .addEventListener("click", () => {
 
     document
