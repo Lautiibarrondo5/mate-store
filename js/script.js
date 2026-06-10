@@ -94,10 +94,10 @@ if(btnCupon){
 
 let historial = JSON.parse(localStorage.getItem("historial")) || [];
 
-const carrito =
+const carritoHistorial =
     JSON.parse(localStorage.getItem("carrito")) || [];
 
-const totalCompra = carrito.reduce(
+const totalCompra = carritoHistorial.reduce(
     (total, producto) => total + producto.precio,
     0
 );
@@ -105,7 +105,7 @@ const totalCompra = carrito.reduce(
 historial.push({
     fecha: new Date().toLocaleDateString(),
     total: totalCompra,
-    productos: carrito
+    productos: carritoHistorial
 });
 
 localStorage.setItem("historial", JSON.stringify(historial));
@@ -257,31 +257,58 @@ btnRuleta.addEventListener("click", () => {
 }
 
 const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot")
 
-if(slides.length > 0){
+let current = 0;
 
-    let indice = 0;
+function mostrarSlide(index){
 
-    setInterval(() => {
+    slides.forEach(slide =>
+        slide.classList.remove("active")
+    );
 
-        slides[indice].classList.remove("active");
+    dots.forEach(dot =>
+        dot.classList("active")
+    );
 
-        indice++;
-
-        if(indice >= slides.length){
-            indice = 0;
-        }
-
-        slides[indice].classList.add("active");
-
-    }, 4000);
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
 }
 
-document
-.getElementById("abrir-buscador")
-.addEventListener("click", () => {
+function siguienteSlide(){
 
-    document
-    .getElementById("buscador")
-    .classList.toggle("mostrar");
-});
+    current++;
+
+    if(current >= slides.length){
+        current = 0;
+    }
+
+    mostrarSlide(current);
+}
+
+function anteriorSlide(){
+
+    current--;
+
+    if(current < 0){
+        current = slides.length - 1;
+    }
+
+    mostrarSlide(current);
+}
+
+document.querySelectorAll(".next").addEventListener("click", siguienteSlide);
+document.querySelectorAll(".prev").addEventListener("click", anteriorSlide);
+
+setInterval(siguienteSlide, 4000);
+
+
+const btnBuscador = document.getElementById("abrir-buscador");
+
+if(btnBuscador){
+    btnBuscador.addEventListener("click", () => {
+        document
+            .getElementById("buscador")
+            .classList.toggle("mostrar");
+    });
+}

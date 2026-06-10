@@ -1,5 +1,6 @@
 //==== BUSCADOR ====
 
+
 const buscador = document.getElementById("buscador");
 
 if(buscador) {
@@ -39,17 +40,19 @@ botones.forEach(boton => {
 
     boton.addEventListener("click", () => {
 
-    const producto = boton.closest(".producto");
+        
 
-    if (!producto) return;
+        const producto = boton.closest(".producto");
 
-const nombre = producto.querySelector("h3").textContent;
+        if (!producto) return;
 
-const precioTexto = producto.querySelector("p").textContent;
+        const nombre = producto.querySelector("h3").textContent;
 
-const precio = parseInt(
-    precioTexto.replace(/\D/g, "")
-) || 0;
+        const precioTexto = producto.querySelector("p").textContent;
+
+        const precio = parseInt(
+            precioTexto.replace(/\D/g, "")
+        ) || 0;
 
 
         carrito.push({

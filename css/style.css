@@ -994,12 +994,16 @@ body{
     padding: 0;
 }
 
-.hero-slider{
+.slider{
     position: relative;
     width: 100%;
-    height: 600px;
-    margin: 0;
+    height: 500px;
     overflow: hidden;
+}
+
+.slides{
+    width: 100%;
+    height: 100%;
 }
 
 .slide{
@@ -1016,52 +1020,98 @@ body{
 .slide img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
+    object-fit: contain;
+    background: #f5f1e8;
+    animation: zoom 8s linear infinite;
 }
 
-.slide-text{
+@keyframes zoom{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.08);
+    }
+}
+
+.slide-texto{
     position: absolute;
     top: 50%;
     left: 10%;
     transform: translateY(-50%);
     color: white;
-    max-width: 500px;
+    text-align: 2px 2px 10px rgba(0,0,0,0.7);
 }
 
-.slide-text h1{
+.slide-texto h2{
     font-size: 3rem;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-.slide-text p{
+.slide-texto p{
     font-size: 1.3rem;
-    margin-bottom: 20px;
 }
 
-.btn-slider{
-    background: #8b5e3c;
+.prev,
+.next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
     color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: .3s;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 22px;
+    z-index: 10;
 }
 
-.btn-slider:hover{
-    background: #6f4629;
+.prev{
+    left: 15px;
 }
 
-@media (max-width: 768px) {
-    .hero-slider {
-        height: 220px;
+.next{
+    right: 15px;
+}
+
+.indicadores{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 5px;
+    opacity: .5;
+}
+
+.dot.active{
+    opacity: 1;
+}
+
+/*RESPONSIVE*/
+
+@media(max-width:768px){
+
+    .slider{
+        height: 350px;
     }
 
-    .slide-text h1{
-        font-size: 2rem;
+    .slide-texto{
+        left: 5%;
     }
 
-    .slide-text p{
+    .slide-texto h2{
+        font-size: 1.8rem;
+    }
+
+    .slide-texto p{
         font-size: 1rem;
     }
 }

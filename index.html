@@ -33,42 +33,50 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                         <i class="fa-solid fa-magnifying-glass" id="abrir-buscador"></i>
                     </a>
 
-                    <a href="login.html">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
+                    <a href="login.html">LOGIN</a>
 
                     <a href="#carrito">
-                        <i class="fa-solid fa-cart-shoopping"></i>
+                        <i class="fa-solid fa-cart-shopping"></i>
                     </a>
                 </div>
             </nav>
 
-        <section class="hero-slider">
-            <div class="slide active">
+        <section class="slider">
+            <div class="slides">
+
+                <div class="slide active">
                 <img src="img/messi-2-mate.jpg" alt="Messi tomando mate">
-                <div class="slide-text">
-                    <h1>El mate nos une</h1>
+                <div class="slide-texto">
+                    <h2>El mate nos une</h2>
                     <p>La pasión Argentina en cada ronda</p>
-                    <a href="#catalogo" class="btn-slider">Ver Catálogo</a>
                 </div>
             </div>
 
             <div class="slide">
                 <img src="img/messi-mate-3.jpg" alt="Messi y el mate">
-                <div class="slide-text">
-                    <h1>Tradición futbolera</h1>
+                <div class="slide-texto">
+                    <h2>Tradición futbolera</h2>
                     <p>Momentos únicos</p>
-                    <a href="#catalogo" class="btn-slider">Comprar Ahora</a>
                 </div>
             </div>
 
             <div class="slide">
                 <img src="img/maradona-2-mates.jpg" alt="El Diego">
-                <div class="slider-text">
-                    <h1>El compañero del diego, puede ser el tuyo.</h1>
+                <div class="slider-texto">
+                    <h2>El compañero del diego, puede ser el tuyo.</h2>
                     <p>Mates, termos y accesorios de calidad.</p>
-                    <a href="#catalogo" class="btn-slider">Explorar</a>
                 </div>
+            </div>
+
+            </div>
+
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+
+            <div class="indicadores">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </section>
 
@@ -562,8 +570,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
             
         </footer>
         
-        <script src="js/script.js"></script>
-        <script src="js/productos.js"></script>
 
     <div id="toast-carrito" class="toast">
         Agregado al Carrito +1
@@ -588,6 +594,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         <p>Tarjetas, transferencias y billeteras virtuales</p>
     </section>
 
+    <script src="js/script.js" defer></script>
+    <script src="js/productos.js" defer></script>
+
     </body>
 
-</html>
+</html
